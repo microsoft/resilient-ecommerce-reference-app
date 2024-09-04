@@ -1,0 +1,44 @@
+controller:
+  replicaCount: 3
+
+  nodeSelector:
+    kubernetes.io/os: linux
+    agentpool: user
+
+  image:
+    registry: mcr.microsoft.com
+    image: oss/kubernetes/ingress/nginx-ingress-controller
+    tag: v1.9.6-patched
+    digest: ""
+
+  admissionWebhooks:
+    patch:
+      nodeSelector:
+        kubernetes.io/os: linux
+        agentpool: user
+      image:
+        registry: mcr.microsoft.com
+        image: oss/kubernetes/ingress/kube-webhook-certgen
+        tag: v1.9.6
+        digest: ""
+
+  service:
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+      service.beta.kubernetes.io/azure-load-balancer-ipv4: $ILB_IP
+      service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /api/live
+    externalTrafficPolicy: Local
+
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: DoNotSchedule
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/name: ingress-nginx
+    - maxSkew: 1
+      topologyKey: kubernetes.io/zone
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/name: ingress-nginx
