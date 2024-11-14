@@ -171,4 +171,4 @@ Follow the instructions in [the setup readme file](doc/SETUP.md) to deploy the a
 
 To test the resiliency of the e-commerce application, **Azure Chaos Studio** can be used to simulate a **zone down fault** within the application's architecture. By injecting this fault, the application's failover mechanisms can be tested (such as retry patterns, zone-redundant deployments, and load balancing). The experiment ensures the application behaves properly in case of an outage and finds any possible degradation in a timely manner.
 
-The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to the [the setup readme file](doc/SETUP.md) to learn more about it.
+The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to [the setup readme file](doc/SETUP.md) to learn more about it.
