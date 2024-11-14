@@ -18,7 +18,7 @@ Follow the instructions in [the setup readme file](doc/SETUP.md) to start using 
 - [Other Considerations](#other-considerations)
   - [Scalability](#scalability)
   - [Monitoring](#monitoring)
-- [Security](#security)
+  - [Security](#security)
 - [Stay Resilient using Azure Policies](#stay-resilient-using-azure-policies)
 - [Cost optimization](#cost-optimization)
 - [Hands-on experiments](#hands-on-experiments)
@@ -119,7 +119,7 @@ The architecture leverages the scalability features of several Azure services to
 
 To monitor the availability metrics can be used (such as **uptime percentage)**, which reflects the proportion of time the application is available and operational. This can be tracked using **Azure Monitor** and **Application Insights**, which provide detailed insights into the health of services, response times, and incident occurrences. Additionally, **service-level agreements (SLAs)** from Azure, typically guaranteeing 99.99% uptime for zone-redundant services, serve as a baseline for measuring and maintaining high availability.
 
-## Security
+### Security
 
 The application achieves robust security through a multi-layered approach, leveraging Azure's native security features to protect against external threats and unauthorized access.
 
