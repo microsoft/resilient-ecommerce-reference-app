@@ -4,6 +4,8 @@ The Resilient ECommerce Reference Application is a synthetic workload that mirro
 
 The application has been tested for resiliency during simulated zonal outages and has performed as expected, keeping a high availability of the service with minimal impact to end users. Currently, it is being used by internal Microsoft teams for regression testing and new region buildouts, providing valuable telemetry to Azure service owners with regards to availability, recovery, service behavior and end user experience.
 
+Follow the instructions in [the setup readme file](doc/SETUP.md) to start using the app. It can be used for educational purposes or as a starting point for developing new resilient applications.
+
 ## Why does resiliency matter?
 
 Building zone-resilient systems guarantees high availability by distributing resources across multiple availability zones, minimizing the impact of localized outages. This not only keeps critical applications running smoothly but also enhances user trust and business continuity. A resilient architecture maximizes uptime, reduces downtime risks, and helps organizations meet stringent reliability standards, safeguarding both performance and customer satisfaction.
@@ -30,13 +32,13 @@ The ECommerce Reference Application has been designed to leverage Azure managed 
 
 The API serves as the backbone for the **Cart** and **Order** services of an e-commerce platform, handling critical business operations such as adding items to the shopping cart, managing cart contents, and processing customer orders. To ensure **high availability** and reliability, the API leverages several cloud-native patterns and techniques.
 
-One of the core techniques used is the **retry pattern** for interacting with **Azure SQL** and **Azure Cache for Redis**. In cloud environments, transient failures---such as brief network interruptions or service throttling---are common, especially when services scale dynamically. The retry pattern is crucial to mitigate these failures by automatically retrying operations that fail due to temporary issues. For example, if a connection to Azure SQL or Redis is interrupted, the API will retry the operation after a short delay, ensuring that it doesn\'t result in a permanent failure or data inconsistency. This retry mechanism significantly improves the resilience of the API, ensuring that the platform continues to function smoothly even in the face of transient issues.
+One of the core techniques used is the **retry pattern** for interacting with **Azure SQL** and **Azure Cache for Redis**. In cloud environments, transient failures (such as brief network interruptions or service throttling) are common, especially when services scale dynamically. The retry pattern is crucial to mitigate these failures by automatically retrying operations that fail due to temporary issues. For example, if a connection to Azure SQL or Redis is interrupted, the API will retry the operation after a short delay, ensuring that it doesn\'t result in a permanent failure or data inconsistency. This retry mechanism significantly improves the resilience of the API, ensuring that the platform continues to function smoothly even in the face of transient issues.
 
 The API also implements **idempotency** for critical operations, such as processing orders, ensuring that if a request is retried multiple times, it will produce the same result. This is essential to avoid issues like duplicate orders or overcharging customers, which can occur if the same operation is mistakenly processed more than once. By assigning unique identifiers to each transaction and checking for duplicates, it guarantees that repeated requests do not affect the outcome, preserving data integrity and customer trust.
 
 To provide detailed insights into the API\'s behavior and performance, it enriches its logging by incorporating **infrastructure-level data** such as the pod, node, and **Azure Application Gateway instance ID**. These enriched logs are stored in **Azure Log Analytics**, allowing for comprehensive monitoring and troubleshooting. Combined with **Container Insights** and **ingress logs from AKS**, this logging strategy enables detailed step-by-step reconstruction of the request lifecycle, making it easier to trace issues and understand system behavior. This level of logging and observability ensures that not only is the API resilient, but also that its performance can be monitored and optimized at every stage of a request's journey.
 
-Browse the [API readme file](./doc/API.md) for more details on the available operations.
+Browse the [API readme file](doc/API.md) for more details on the available operations.
 
 ### Networking architecture
 
@@ -134,16 +136,16 @@ Cost optimization in a zone-resilient system on Azure involves carefully balanci
 
 ### Deploy the App
 
-Follow the instructions in [the setup readme file](.\doc\SETUP.md) to deploy the app and run the health checks.
+Follow the instructions in [the setup readme file](doc/SETUP.md) to deploy the app and run the health checks.
 
 ### Simulating a zone-down (Chaos Studio)
 
 #### Azure Chaos Studio Overview
 
-**Azure Chaos Studio** is a managed experimentation platform that helps developers and operations teams improve the resilience of their applications by intentionally injecting faults and disruptions into their system. It allows teams to simulate real-world failure scenarios---such as network latency, service downtime, or hardware failures---so they can observe how their application behaves under stress and identify potential weaknesses. By testing with Azure Chaos Studio, teams can proactively improve the reliability and robustness of their applications, ensuring they perform well even in unpredictable cloud environments. The platform integrates seamlessly with Azure services, making it easier to conduct controlled chaos experiments without compromising production environments. [Read more about chaos studio.](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview)
+**Azure Chaos Studio** is a managed experimentation platform that helps developers and operations teams improve the resilience of their applications by intentionally injecting faults and disruptions into their system. It allows teams to simulate real-world failure scenarios (such as network latency, service downtime, or hardware failures) so they can observe how their application behaves under stress and identify potential weaknesses. By testing with Azure Chaos Studio, teams can proactively improve the reliability and robustness of their applications, ensuring they perform well even in unpredictable cloud environments. The platform integrates seamlessly with Azure services, making it easier to conduct controlled chaos experiments without compromising production environments. [Read more about chaos studio.](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview)
 
 #### Using Chaos Studio to Test Zone Resiliency
 
 To test the resiliency of the e-commerce application, **Azure Chaos Studio** can be used to simulate a **zone down fault** within the application's architecture. By injecting this fault, the application's failover mechanisms can be tested (such as retry patterns, zone-redundant deployments, and load balancing). The experiment ensures the application behaves properly in case of an outage and finds any possible degradation in a timely manner.
 
-The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to the README file in [the setup readme file](.\doc\SETUP.md) to learn more about it.
+The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to the README file in [the setup readme file](doc/SETUP.md) to learn more about it.
