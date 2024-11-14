@@ -8,26 +8,24 @@ Follow the instructions in [the setup readme file](doc/SETUP.md) to start using 
 
 ## Content
 
-- [Resilient ECommerce Reference Application](#resilient-ecommerce-reference-application)
-  - [Content](#content)
-  - [Why does resiliency matter?](#why-does-resiliency-matter)
-  - [Azure regions and availability zones (AZ)](#azure-regions-and-availability-zones-az)
-  - [Application structure](#application-structure)
-    - [The API](#the-api)
-    - [Networking architecture](#networking-architecture)
-    - [Storage architecture](#storage-architecture)
-    - [Compute architecture](#compute-architecture)
-  - [Other Considerations](#other-considerations)
-    - [Scalability](#scalability)
-    - [Monitoring](#monitoring)
+- [Why does resiliency matter?](#why-does-resiliency-matter)
+- [Azure regions and availability zones (AZ)](#azure-regions-and-availability-zones-az)
+- [Application structure](#application-structure)
+  - [The API](#the-api)
+  - [Networking architecture](#networking-architecture)
+  - [Storage architecture](#storage-architecture)
+  - [Compute architecture](#compute-architecture)
+- [Other Considerations](#other-considerations)
+  - [Scalability](#scalability)
+  - [Monitoring](#monitoring)
   - [Security](#security)
-  - [Stay Resilient using Azure Policies](#stay-resilient-using-azure-policies)
-  - [Cost optimization](#cost-optimization)
-  - [Hands-on experiments](#hands-on-experiments)
-    - [Deploy the App](#deploy-the-app)
-    - [Simulating a zone-down (Chaos Studio)](#simulating-a-zone-down-chaos-studio)
-      - [Azure Chaos Studio Overview](#azure-chaos-studio-overview)
-      - [Using Chaos Studio to Test Zone Resiliency](#using-chaos-studio-to-test-zone-resiliency)
+- [Stay Resilient using Azure Policies](#stay-resilient-using-azure-policies)
+- [Cost optimization](#cost-optimization)
+- [Hands-on experiments](#hands-on-experiments)
+  - [Deploy the App](#deploy-the-app)
+  - [Simulating a zone-down (Chaos Studio)](#simulating-a-zone-down-chaos-studio)
+    - [Azure Chaos Studio Overview](#azure-chaos-studio-overview)
+    - [Using Chaos Studio to Test Zone Resiliency](#using-chaos-studio-to-test-zone-resiliency)
 
 ## Why does resiliency matter?
 
@@ -121,7 +119,7 @@ The architecture leverages the scalability features of several Azure services to
 
 To monitor the availability metrics can be used (such as **uptime percentage)**, which reflects the proportion of time the application is available and operational. This can be tracked using **Azure Monitor** and **Application Insights**, which provide detailed insights into the health of services, response times, and incident occurrences. Additionally, **service-level agreements (SLAs)** from Azure, typically guaranteeing 99.99% uptime for zone-redundant services, serve as a baseline for measuring and maintaining high availability.
 
-## Security
+### Security
 
 The application achieves robust security through a multi-layered approach, leveraging Azure's native security features to protect against external threats and unauthorized access.
 
