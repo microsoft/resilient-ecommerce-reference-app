@@ -1,7 +1,9 @@
+# API Documentation
 
 ## General description
 
 The API provides a an approach to the operations available on any usual e-commerce platform for ticket sales. The typical client workflow, enabled by this API's endpoints, would look something like:
+
 1. Create a new user.
 2. Retrieve a list of all upcoming concerts.
 3. Add tickets to the cart.
@@ -11,13 +13,11 @@ The API provides a an approach to the operations available on any usual e-commer
 Please note that orders are created based on the current state of the cart; items present in the cart at the time of order creation will be included in the order.
 
 When a new order is created (a check-out operation is triggered), the following takes place:
+
 1. All the tickets found in the user's cart are created in the DB -- a ticket entity for each.
 2. A new order entity is created in the DB, linked to all the tickets created.
 3. The payment is processed.
 4. The cart is cleared.
-
-TODO: To ensure the above operation's atomicity, a separate QCS service will be introduced (Service Bus / Functions / Logic Apps etc.).
-
 
 ## The API
 
@@ -221,7 +221,7 @@ bash run-healthcheck.sh
 ### 2. Link local webapp to datastore hosted in Azure
 
 1. Create a SQL Server Database and a Redis Cache in Azure. **Note:** disable, during creation, the authentication through SAS tokens / connection strings.
-2. Make sure you assign your identity (your `@microsoft` account) the necessary permissions to access the resources:
+2. Make sure you assign your identity the necessary permissions to access the resources:
 	- For the SQL Server, during creation, set your identity as the DB admin. On the first page of the SQL Server creation wizard:
 		- Select the **"Use Microsoft Entra-only authentication"** option.
 		- Add your identity as the admin by selecting the **"Set admin"** next to the **"Set Microsoft Entra admin"**. Set your identity as the admin.
