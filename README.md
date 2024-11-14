@@ -8,31 +8,22 @@ Follow the instructions in [the setup readme file](doc/SETUP.md) to start using 
 
 ## Content
 
-**[1. Why does resiliency matter?](## Why does resiliency matter?)**
-
-**[2. Azure regions and availability zones (AZ)](## Azure regions and availability zones (AZ))**
-
-**[3. Application structure](## Why does resiliency matter?)**
-
-* [3.1 The API](### The API)
-* [3.2 Networking architecture](### Networking architecture)
-* [3.3 Storage architecture](### Storage architecture)
-* [3.4 Compute architecture](### Compute architecture)
-
-**[4. Other Considerations](## Other Considerations)**
-
-* [4.1 Scalability](### Scalability)
-* [4.2 Monitoring](### Networking architecture)
-* [4.3 Security](### Storage architecture)
-
-**[5. Stay Resilient using Azure Policies](## Stay Resilient using Azure Policies)**
-
-**[6. Cost optimization](## Cost optimization)**
-
-**[7. Hands-on experiments](## Hands-on experiments)**
-
-* [7.1 Deploy the App](### Deploy the App)
-* [7.2 Simulating a zone-down (Chaos Studio)](### Simulating a zone-down (Chaos Studio))
+- [1. Why does resiliency matter?](## Why does resiliency matter?)
+- [2. Azure regions and availability zones (AZ)](## Azure regions and availability zones (AZ))
+- [3. Application structure](## Why does resiliency matter?)
+  - [3.1 The API](### The API)
+  - [3.2 Networking architecture](### Networking architecture)
+  - [3.3 Storage architecture](### Storage architecture)
+  - [3.4 Compute architecture](### Compute architecture)
+- [4. Other Considerations](## Other Considerations)
+  - [4.1 Scalability](### Scalability)
+  - [4.2 Monitoring](### Networking architecture)
+  - [4.3 Security](### Storage architecture)
+- [5. Stay Resilient using Azure Policies](## Stay Resilient using Azure Policies)
+- [6. Cost optimization](## Cost optimization)
+- [7. Hands-on experiments](## Hands-on experiments)
+  - [7.1 Deploy the App](### Deploy the App)
+  - [7.2 Simulating a zone-down (Chaos Studio)](### Simulating a zone-down (Chaos Studio))
 
 ## Why does resiliency matter?
 
