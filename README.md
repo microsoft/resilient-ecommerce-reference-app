@@ -6,6 +6,34 @@ The application has been tested for resiliency during simulated zonal outages an
 
 Follow the instructions in [the setup readme file](doc/SETUP.md) to start using the app. It can be used for educational purposes or as a starting point for developing new resilient applications.
 
+## Content
+
+**[1. Why does resiliency matter?](## Why does resiliency matter?)**
+
+**[2. Azure regions and availability zones (AZ)](## Azure regions and availability zones (AZ))**
+
+**[3. Application structure](## Why does resiliency matter?)**
+
+* [3.1 The API](### The API)
+* [3.2 Networking architecture](### Networking architecture)
+* [3.3 Storage architecture](### Storage architecture)
+* [3.4 Compute architecture](### Compute architecture)
+
+**[4. Other Considerations](## Other Considerations)**
+
+* [4.1 Scalability](### Scalability)
+* [4.2 Monitoring](### Networking architecture)
+* [4.3 Security](### Storage architecture)
+
+**[5. Stay Resilient using Azure Policies](## Stay Resilient using Azure Policies)**
+
+**[6. Cost optimization](## Cost optimization)**
+
+**[7. Hands-on experiments](## Hands-on experiments)**
+
+* [7.1 Deploy the App](### Deploy the App)
+* [7.2 Simulating a zone-down (Chaos Studio)](### Simulating a zone-down (Chaos Studio))
+
 ## Why does resiliency matter?
 
 Building zone-resilient systems guarantees high availability by distributing resources across multiple availability zones, minimizing the impact of localized outages. This not only keeps critical applications running smoothly but also enhances user trust and business continuity. A resilient architecture maximizes uptime, reduces downtime risks, and helps organizations meet stringent reliability standards, safeguarding both performance and customer satisfaction.
@@ -148,4 +176,4 @@ Follow the instructions in [the setup readme file](doc/SETUP.md) to deploy the a
 
 To test the resiliency of the e-commerce application, **Azure Chaos Studio** can be used to simulate a **zone down fault** within the application's architecture. By injecting this fault, the application's failover mechanisms can be tested (such as retry patterns, zone-redundant deployments, and load balancing). The experiment ensures the application behaves properly in case of an outage and finds any possible degradation in a timely manner.
 
-The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to the README file in [the setup readme file](doc/SETUP.md) to learn more about it.
+The sample source code contains scripts to start the Chaos Experiment and run health checks to ensure the app is running smoothly. Browse to the [the setup readme file](doc/SETUP.md) to learn more about it.
